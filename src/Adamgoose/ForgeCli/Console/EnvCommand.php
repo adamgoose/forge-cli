@@ -36,17 +36,25 @@ class EnvCommand extends Command {
    */
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $path = '/home/forge/'.$input->getArgument('site').'/';
-    $environmentString = $input->getArgument('environment') ? '.'.$input->getArgument('environment') : null;
-    $file = '.env'.$environmentString.'.php';
+    $path = '/home/forge/' . $input->getArgument('site') . '/';
+    $environmentString = $input->getArgument('environment') ? '.' . $input->getArgument('environment') : null;
+    $file = '.env' . $environmentString . '.php';
 
-    $vars = require $path.$file;
+    if( ! file_exists($path . $file)):
 
-    $output->writeln('<info>=== '.$file.' ===</info>');
+      $output->writeln('<error>Environment File Does Not Exist</error>');
 
-    foreach($vars as $key => $value)
-      $output->writeln("<comment>$key => $value</comment>");
+    else:
 
-    $output->writeln('<info>=== End of Environment Variables ===</info>');
+      $vars = require $path . $file;
+
+      $output->writeln('<info>=== ' . $file . ' ===</info>');
+
+      foreach($vars as $key => $value)
+        $output->writeln("<comment>$key => $value</comment>");
+
+      $output->writeln('<info>=== End of Environment Variables ===</info>');
+
+    endif;
   }
 }

@@ -38,7 +38,8 @@ class LogCommand extends Command {
 
     $finder->files()->in($path)->name($name)->sortByName();
 
-    $log = array_pop(iterator_to_array($finder));
+    $array = iterator_to_array($finder);
+    $log = array_pop($array);
 
     $output->writeln('<info>=== '.$log->getFilename().' ===</info>');
     $output->writeln('<comment>'.$log->getContents().'</comment>');
