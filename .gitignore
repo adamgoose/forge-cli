@@ -1,0 +1,4 @@
+.idea
+phar-composer.phar
+post-build-hooks/*.sh
+vendor/

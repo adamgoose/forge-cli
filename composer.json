@@ -1,0 +1,23 @@
+{
+  "name": "adamgoose/forge-cli",
+  "description": "A CLI for Laravel Forge Servers",
+  "tags": ["laravel", "forge"],
+  "require": {
+    "symfony/console": "2.5.*",
+    "symfony/finder": "2.5.*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adam Engebretson",
+      "email": "adam@enge.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Adamgoose\\": "src/Adamgoose"
+    }
+  },
+  "bin": ["bin/forge-cli"],
+  "minimum-stability": "stable"
+}
