@@ -4,14 +4,16 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Adamgoose\ForgeCli\Console\EnvCommand;
-use Adamgoose\ForgeCli\Console\LogCommand;
+use Adamgoose\ForgeCli\Console\Log\DeployCommand;
+use Adamgoose\ForgeCli\Console\Log\JobCommand;
 use Adamgoose\ForgeCli\Console\SitesCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$application->add(new LogCommand);
+$application->add(new DeployCommand);
 $application->add(new EnvCommand);
 $application->add(new SitesCommand);
+$application->add(new JobCommand);
 
 $application->run();

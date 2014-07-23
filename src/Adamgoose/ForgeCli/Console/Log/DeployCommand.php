@@ -1,4 +1,4 @@
-<?php namespace Adamgoose\ForgeCli\Console;
+<?php namespace Adamgoose\ForgeCli\Console\Log;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -6,7 +6,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 
-class LogCommand extends Command {
+class DeployCommand extends Command {
 
   /**
    * Configure the command
@@ -14,7 +14,7 @@ class LogCommand extends Command {
   protected function configure()
   {
     $this
-      ->setName('log')
+      ->setName('log:deploy')
       ->setDescription('Get the latest deploy log')
       ->addOption(
         'sh',
