@@ -8,6 +8,7 @@ use Adamgoose\ForgeCli\Console\DaemonsCommand;
 use Adamgoose\ForgeCli\Console\EnvCommand;
 use Adamgoose\ForgeCli\Console\JobsCommand;
 use Adamgoose\ForgeCli\Console\KeysCommand;
+use Adamgoose\ForgeCli\Console\MonitoringCommand;
 use Adamgoose\ForgeCli\Console\SitesCommand;
 use Adamgoose\ForgeCli\Console\Daemon\RestartCommand;
 use Adamgoose\ForgeCli\Console\Daemon\StatusCommand;
@@ -22,6 +23,7 @@ $application->add(new DaemonsCommand);
 $application->add(new EnvCommand);
 $application->add(new JobsCommand);
 $application->add(new KeysCommand);
+$application->add(new MonitoringCommand);
 $application->add(new SitesCommand);
 
 // Namespace: Daemon
