@@ -6,6 +6,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use Adamgoose\ForgeCli\Console\DaemonsCommand;
 use Adamgoose\ForgeCli\Console\EnvCommand;
+use Adamgoose\ForgeCli\Console\FirewallCommand;
 use Adamgoose\ForgeCli\Console\IpCommand;
 use Adamgoose\ForgeCli\Console\JobsCommand;
 use Adamgoose\ForgeCli\Console\KeysCommand;
@@ -22,6 +23,7 @@ $application = new Application();
 
 $application->add(new DaemonsCommand);
 $application->add(new EnvCommand);
+$application->add(new FirewallCommand);
 $application->add(new IpCommand);
 $application->add(new JobsCommand);
 $application->add(new KeysCommand);
