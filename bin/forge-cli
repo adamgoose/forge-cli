@@ -3,21 +3,34 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+
+use Adamgoose\ForgeCli\Console\DaemonsCommand;
 use Adamgoose\ForgeCli\Console\EnvCommand;
 use Adamgoose\ForgeCli\Console\JobsCommand;
 use Adamgoose\ForgeCli\Console\KeysCommand;
+use Adamgoose\ForgeCli\Console\SitesCommand;
+use Adamgoose\ForgeCli\Console\Daemon\RestartCommand;
+use Adamgoose\ForgeCli\Console\Daemon\StatusCommand;
+use Adamgoose\ForgeCli\Console\Log\DaemonCommand;
 use Adamgoose\ForgeCli\Console\Log\DeployCommand;
 use Adamgoose\ForgeCli\Console\Log\JobCommand;
-use Adamgoose\ForgeCli\Console\SitesCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$application->add(new DeployCommand);
+$application->add(new DaemonsCommand);
 $application->add(new EnvCommand);
-$application->add(new SitesCommand);
-$application->add(new JobCommand);
 $application->add(new JobsCommand);
 $application->add(new KeysCommand);
+$application->add(new SitesCommand);
+
+// Namespace: Daemon
+$application->add(new RestartCommand);
+$application->add(new StatusCommand);
+
+// Namespace: Log
+$application->add(new DaemonCommand);
+$application->add(new DeployCommand);
+$application->add(new JobCommand);
 
 $application->run();
