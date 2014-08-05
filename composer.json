@@ -4,7 +4,8 @@
   "tags": ["laravel", "forge"],
   "require": {
     "symfony/console": "2.5.*",
-    "symfony/finder": "2.5.*"
+    "symfony/finder": "2.5.*",
+    "symfony/filesystem": "2.5.*"
   },
   "license": "MIT",
   "authors": [
