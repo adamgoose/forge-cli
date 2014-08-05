@@ -4,6 +4,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 
+use Adamgoose\ForgeCli\Console\CakeCommand;
 use Adamgoose\ForgeCli\Console\DaemonsCommand;
 use Adamgoose\ForgeCli\Console\EnvCommand;
 use Adamgoose\ForgeCli\Console\FirewallCommand;
@@ -22,6 +23,7 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
+$application->add(new CakeCommand);
 $application->add(new DaemonsCommand);
 $application->add(new EnvCommand);
 $application->add(new FirewallCommand);
