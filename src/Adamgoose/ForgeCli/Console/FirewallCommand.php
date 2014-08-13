@@ -31,7 +31,7 @@ class FirewallCommand extends Command {
     $regex = '/Chain ufw-user-input \([0-9] references\)([\s\S]+)\nChain ufw-user-limit \([0-9] references\)/';
     preg_match($regex, $iptables, $matches);
 
-    $output->writeln('<info>=== Beginnin of Rules ===</info>');
+    $output->writeln('<info>=== Beginning of Rules ===</info>');
 
     foreach(explode("\n", $matches[1]) as $line)
     {
