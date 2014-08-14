@@ -4,17 +4,49 @@ This Command Line Interface allows Laravel Forge users to review the Forge Confi
 
 ## Installation
 
-To install Forge-CLI, execute the following commands:
+To install Forge-CLI, execute the following command on your Forge server:
 
-    $ wget https://raw.githubusercontent.com/adamgoose/forge-cli/master/dist/forge-cli.phar
-    $ sudo mv forge-cli.phar /usr/local/bin/forge
-    $ sudo chmod +x /usr/local/bin/forge
+    wget https://raw.githubusercontent.com/adamgoose/forge-cli/master/dist/install.sh | bash
 
 ## Usage
 
-Once installed, you can retreive a list of available commands by executing `forge list`.
+```
+Console Tool
 
-For help on a specific command, execute `forge help [command_name]`.
+Usage:
+  [options] command [arguments]
+
+Options:
+  --help           -h Display this help message.
+  --quiet          -q Do not output any message.
+  --verbose        -v|vv|vvv Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+  --version        -V Display this application version.
+  --ansi              Force ANSI output.
+  --no-ansi           Disable ANSI output.
+  --no-interaction -n Do not ask any interactive question.
+
+Available commands:
+  cake             ??
+  daemons          List the daemons configured by Forge
+  env              Get a list of Environment Variables
+  firewall         Get the public and private IPs for this server
+  git              Displays details about a site's git repository.
+  help             Displays help for a command
+  ip               Get the public and private IPs for this server
+  jobs             List the scheduled jobs configured by Forge
+  keys             List the SSH Keys configured by Forge
+  list             Lists commands
+  monitoring       Describe Monitoring Services configured by Forge
+  self-update      Update Forge CLI
+  sites            List the sites configured by Forge
+daemon
+  daemon:restart   Restart a daemon
+  daemon:status    Get the status of a daemon
+log
+  log:daemon       Get the latest log for a daemon
+  log:deploy       Get the latest deploy log
+  log:job          Get the latest log for a scheduled job 
+```
 
 ## Contributing
 
