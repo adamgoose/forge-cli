@@ -6,7 +6,7 @@ This Command Line Interface allows Laravel Forge users to review the Forge Confi
 
 To install Forge-CLI, execute the following command on your Forge server:
 
-    wget https://raw.githubusercontent.com/adamgoose/forge-cli/master/dist/install.sh | bash
+    wget https://raw.githubusercontent.com/adamgoose/forge-cli/master/install.sh | bash
 
 ## Usage
 
