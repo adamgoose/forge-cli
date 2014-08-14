@@ -32,17 +32,44 @@ class DeployCommand extends Command {
    */
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $finder = new Finder();
     $path = '/home/forge/.forge';
     $name = '*.' . ($input->getOption('sh') ? 'sh' : 'output');
 
-    $finder->files()->in($path)->name($name)->sortByName();
+    $log = $this->getLatestFileIn($path, $name);
+
+    $output->writeln('<info>=== ' . $log->getFilename() . ' ===</info>');
+    $output->writeln('<comment>' . $log->getContents() . '</comment>');
+    $output->writeln('<info>=== End of Log ===</info>');
+  }
+
+  /**
+   * @param $path
+   * @param $name
+   *
+   * @return mixed
+   */
+  private function getLatestFileIn($path, $name)
+  {
+    $finder = new Finder();
+    $pattern = '/-([0-9]+)./';
+    $finder->files()->in($path)->name($name)
+      ->sort(function (\SplFileInfo $a, \SplFileInfo $b) use ($pattern)
+      {
+        $matches = [];
+        preg_match($pattern, $a->getFilename(), $matches['a']);
+        preg_match($pattern, $b->getFilename(), $matches['b']);
+
+        $ids = [
+          'a' => $matches['a'][1],
+          'b' => $matches['b'][1],
+        ];
+
+        return $ids['a'] > $ids['b'];
+      });
 
     $array = iterator_to_array($finder);
     $log = array_pop($array);
 
-    $output->writeln('<info>=== '.$log->getFilename().' ===</info>');
-    $output->writeln('<comment>'.$log->getContents().'</comment>');
-    $output->writeln('<info>=== End of Log ===</info>');
+    return $log;
   }
 }
