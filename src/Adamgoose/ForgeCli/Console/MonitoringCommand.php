@@ -26,7 +26,7 @@ class MonitoringCommand extends Command {
   {
     try
     {
-      $config = file_get_contents('/etc/php5/fpm/conf.d/newrelic.ini');
+      $config = @file_get_contents('/etc/php5/fpm/conf.d/newrelic.ini');
     } catch(\Exception $e)
     {
       $output->writeln('<comment>NewRelic not installed.</comment>');
@@ -35,7 +35,7 @@ class MonitoringCommand extends Command {
 
     $output->writeln('<info>=== NewRelic Config ===');
 
-    if(preg_match('/newrelic.license = "(.+)"/', $config, $results))
+    if(!empty($config) && preg_match('/newrelic.license = "(.+)"/', $config, $results))
     {
       $output->writeln('<comment>Licence: ' . $results[1] . '</comment>');
     }
