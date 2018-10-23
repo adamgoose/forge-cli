@@ -54,7 +54,7 @@ To contribute to this repository, please follow PSR-4 autoloading standards. Fol
 
 1. Clone the repository.
 2. Install `phar-composer.phar` by following instructions [here](https://github.com/clue/phar-composer).
-3. Makge changes to the code.
+3. Make changes to the code.
 4. Build your changes by running `./build.sh`.
 
 You can add custom post-build hooks by creating executable `*.sh` files in the `post-build-hooks` directory. For example, you could create a `deploy.sh` file that looks something like this:
